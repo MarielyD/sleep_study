@@ -1,7 +1,11 @@
 import pandas as pd
+import os
+
 
 def read_file():
-  df = pd.read_csv('/Users/marielydelacruz/code/sleep_study/Sleep_health_and_lifestyle_dataset.csv')
+  cwd = os.getcwd()
+  file_path = (f'{cwd}/Sleep_health_and_lifestyle_dataset.csv')
+  df = pd.read_csv(file_path)
   df.loc[df['BMI Category'] == 'Normal Weight', 'BMI Category'] = 'Normal'
   df["Sleep Disorder"].fillna("No Sleep Disorder", inplace = True)
   return df
