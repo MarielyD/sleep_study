@@ -4,7 +4,7 @@ import os
 
 def read_file():
   cwd = os.getcwd()
-  file_path = (f'{cwd}/Sleep_health_and_lifestyle_dataset.csv')
+  file_path = (f'{cwd}/components/Sleep_health_and_lifestyle_dataset.csv')
   df = pd.read_csv(file_path)
   df.loc[df['BMI Category'] == 'Normal Weight', 'BMI Category'] = 'Normal'
   df["Sleep Disorder"].fillna("No Sleep Disorder", inplace = True)
